@@ -4,18 +4,292 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Home Page</title>
+
+	<style>
+		* {
+			box-sizing: 		border-box;
+		}
+
+		
+		.col-md-00  {display: 		   none; }
+		.col-md-005 {width: 		  4.165%; }
+		.col-md-01  {width: 		  8.33%; }
+		.col-md-015 {width: 		12.495%; }
+		.col-md-018 {width: 		 15.00%; }
+		.col-md-02  {width: 		 16.66%; }
+		.col-md-03  {width: 		 25.00%; }
+		.col-md-04  {width: 		 33.33%; }
+		.col-md-05  {width: 		 41.66%; }
+		.col-md-06  {width: 		 50.00%; }
+		.col-md-07  {width: 		 58.33%; }
+		.col-md-08  {width: 		 66.66%; }
+		.col-md-09  {width: 		 75.00%; }
+		.col-md-10  {width: 		 83.33%; }
+		.col-md-11  {width: 		 91.66%; }
+		.col-md-12  {width: 		100.00%; }
+
+
+
+		[class*="col-"] {
+			float: 				left;
+			border-radius: 		10px;
+		}
+
+		.row::after {
+			content: 			"";
+			clear: 				both;
+			display: 			block;
+		}
+
+		.lim {background-color: #00ff00;}
+		.yel {background-color: #ffff00;}
+		.cya {background-color: #00ffff;}
+		.mar {background-color: #800000;}
+		.gre {background-color: #008000;}
+		.oli {background-color: #808000;}
+		.tea {background-color: #008080;}
+		.wht {background-color: #ffffff;}
+		.ltblk {background-color: #404040;}
+		.drkblk {background-color:#000000;}
+
+		body {
+			font-family: 		sans-serif;
+			font-size: 			12px;		
+			text-align: 		center;
+			background-color:   #000000;
+		}
+
+								/* ASU Header*/
+		h1{
+			color: red;
+		}
+
+
+								/*Changes Background color of button when mouse hovers over element*/
+		button:hover {
+			background-color: #D9853B;
+		}
+
+		button {
+			padding:			 6px; 
+			margin-top:			 16px;
+			border:	   2px solid gold; 
+			color: 				white; 
+		}
+
+
+
+
+
+
+								/* Textboxes/inputs CSS */
+		input[type=text] {
+			text-align: 	   		 left;
+			font-family: 		monospace;
+			font-size: 				1.5em;
+			padding:  			10px 40px;
+/*			width: 				20em;
+			height: 			 3em;*/
+			background-color:    peachpuff;
+		}
+
+								/*Changes 'sightMap' & 'contact' heading to white text. (in the footer)*/
+		h2 {
+			color: gold;
+			text-decoration: underline;
+		}
+
+
+		footer {
+/*			min-width: 855px;*/
+			overflow: auto;
+			text-align: left;
+		}
+
+								/* Floats 'Contact' info to the left */
+		footer .left { 
+			float: left; 
+			width: 400px; 
+			color: white;
+			}
+
+								/* Floats 'Sitemap' info to the right */
+		footer .sitemap {
+			float: right; 
+			width: 155px;
+		}
+
+		li{
+			font-size: 16px;
+		}
+
+								/* Container for Footer floating elements. Allows elements to be floated on same line */
+		.container {
+			min-width:100px; width: auto !important; width: 100px;
+			max-width: 1200px;
+			margin: auto;
+		}
+
+								/* Centers the Table */
+		.center {
+			margin: auto;
+			display: table;
+			text-align: left;
+			color: white;
+		}
+
+		
+		p {
+			color: white;
+			font-size: 12px;
+		}
+
+
+							/*NEXT 3 CSS STATEMENTS: Inserts a white bullet point   */ 
+		ul {
+		    list-style: none;
+		    padding: 0px;
+		    margin: 0;
+/*		    text-align: left;*/
+		}
+
+		li {
+			margin-top: 1px;
+		    padding-left: 1em; 
+		    text-indent: -.7em;
+/*		    display: inline-block;*/
+		}
+
+		li::before {
+		    content: "• ";
+		    color: white; /* or whatever color you prefer */
+		}
+
+	</style>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    <h1>Hello Thomas...</h1>
-    <h2>Neat</h2>
-    
-    <h3>CONNOR CHANGED THIS OH NO</h3>
+			<header>
+		<div class="row">
+			<div class="col-md-06 drkblk"><h1>Arizona State University Bookstore*</h1></div>		
+			<div><button class="col-md-015 ltblk" type="button">Home</button></div>
+			<div><button class="col-md-015 ltblk" type="button">Search</button></div>			
+			<div><button class="col-md-015 ltblk" type="button">Shopping Cart</button></div>	
+			<div><button class="col-md-015 ltblk" type="button">Check Out</button></div>	
+		</div>
+	</header>
 
-	<h4>Josh Made Changes</h4>
-    </div>
-    </form>
+	<div class="row">
+		<div class="col-md-00 wht"></div>
+		<div>
+
+			<div style="height: 10px; background-color: #000000"></div>
+
+			<asp:Image ID="imgASUBookstore" runat="server" ImageUrl="~/Images/ASUBookstore.jpg" />
+
+			
+
+		</div>
+		<div class="col-md-00 wht"></div>
+	</div>
+
+	<div style="height: 10px; background-color: #000000"></div>
+
+
+
+
+	<div class="row">
+		<div class="col-md-01 drkblk"><h2>&nbsp;</h2></div>
+		<div>
+		<form id=inputForm>
+			
+			<table class="center" id=inputTable>
+				<tr>
+					<td>
+						<input id="authorLastNameID" type="text" 
+							   placeholder="Author Last Name" required>
+					</td>
+					<td>
+						<input id="authorFirstNameID" type="text" 
+							   placeholder="Author First Name" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="isbnID" type="text" 
+							   placeholder="ISBN Number" required>
+					</td>
+					<td>
+						<input id="bookTitleID" type="text" 
+							   placeholder="Book Title" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="courseNumberID" type="text" 				
+							   placeholder="Course Number" required>
+					</td>
+					<td align="right">
+						<input id="authorLastNameID" type="submit" 
+							    required>
+					</td>		
+				</tr>
+			</table>
+
+		</form>
+			
+		</div>
+
+
+		<div class="row">
+		<div class="col-md-00 wht"></div>
+		<div>
+
+			<div style="height: 10px; background-color: #000000;"></div>
+<!-- 						<hr color="lightblue"> -->
+			<asp:Image ID="imgSunDevils" runat="server" ImageUrl="~/Images/ASUSunDevilsRevisedV3.jpg" />
+
+
+		</div>
+		<div class="col-md-00 wht"></div>
+	</div>
+
+	<div style="height: 10px; background-color: #000000"></div>
+
+	</div>
+
+<!-- 	<hr color="red"> -->
+
+	<footer>
+		<div class="row">
+			<div class="col-md-015 drkblk"><h5>&nbsp;</h5></div>
+	        <div class="col-md-02 drklblk"> <h2>Contact Us</h2></div>
+	        <div class="col-md-06 drkblk"><p>&nbsp;</p></div>
+	        <div class="col-md-02 drkblk"><h2>Sitemap</h2></div>
+	        <div class="col-md-005 drkblk"><p>&nbsp;</p></div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-md-015 drkblk"><p>&nbsp;</p></div>
+	    	<div class="col-md-02 drkblk"><p>Arizona State University</p>
+	    								  <p>525 East Orange Street</p>
+	    								  <p>Tempe, Arizona 85287-2001</p>
+	    								  <p>Phone: (480) 965-3191</p></div>
+
+	    	<div class="col-md-06 drkblk"><p>&nbsp;</p></div>
+
+	    	<div class="col-md-02 drkblk"><ul><nav><li><a href="#">ASU Home Page</a></li>
+	    								  <li><a href="#">About Us</a></li>
+	    								  <li><a href="#">Privacy</a></li>
+	    								  <li><a href="#">Support</a></li></nav></ul></div>
+
+	    	<div class="col-md-005 drkblk"><p>&nbsp;</p></div>
+	    </div>
+
+
+
+
+	    
+	    
+	</footer>
 </body>
 </html>
