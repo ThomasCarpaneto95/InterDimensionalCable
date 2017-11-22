@@ -166,10 +166,6 @@
 		    color: white; /* or whatever color you prefer */
 		}
 
-		.auto-style3 {
-			width: 604px;
-		}
-
 		.auto-style4 {
 			width: 163px;
 		}
@@ -222,8 +218,9 @@
 			<table class="center" id=inputTable>
 				<tr>
 					<td>
-						<input id="authorLastNameID" type="text" 
-							   placeholder="Search" required class="auto-style3">
+
+						<asp:TextBox ID="SearchTxtBox" runat="server" Width="617px"></asp:TextBox>
+						
 					</td>
 				
 				
@@ -288,6 +285,9 @@
 	    
 	    
 	</footer>
+
+<asp:Label ID="Label1" runat="server" Text="Label" BackColor="White"></asp:Label>
+
 </form>
 </body>
 </html>
