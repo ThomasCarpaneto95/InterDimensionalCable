@@ -13,6 +13,51 @@ namespace InterDimensionalCable {
     public partial class Home {
         
         /// <summary>
+        /// HomeForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm HomeForm;
+        
+        /// <summary>
+        /// HomeBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button HomeBtn;
+        
+        /// <summary>
+        /// SearchBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SearchBtn;
+        
+        /// <summary>
+        /// ShoppingCartBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ShoppingCartBtn;
+        
+        /// <summary>
+        /// ConfirmationBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ConfirmationBtn;
+        
+        /// <summary>
         /// imgASUBookstore control.
         /// </summary>
         /// <remarks>
@@ -20,6 +65,15 @@ namespace InterDimensionalCable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgASUBookstore;
+        
+        /// <summary>
+        /// submitBTN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitBTN;
         
         /// <summary>
         /// imgSunDevils control.
