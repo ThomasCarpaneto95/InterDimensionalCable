@@ -71,7 +71,7 @@
 			background-color: #D9853B;
 		}
 
-		button {
+		.button {
 			padding:			 6px; 
 			margin-top:			 16px;
 			border:	   2px solid gold; 
@@ -166,16 +166,28 @@
 		    color: white; /* or whatever color you prefer */
 		}
 
+		.auto-style4 {
+			width: 163px;
+		}
+
+		.auto-style5 {
+			margin-left: 0px;
+		}
+
 	</style>
 </head>
 <body>
+	<form id="HomeForm" runat="server">
 			<header>
 		<div class="row">
-			<div class="col-md-06 drkblk"><h1>Arizona State University Bookstore*</h1></div>		
-			<div><button class="col-md-015 ltblk" type="button">Home</button></div>
-			<div><button class="col-md-015 ltblk" type="button">Search</button></div>			
-			<div><button class="col-md-015 ltblk" type="button">Shopping Cart</button></div>	
-			<div><button class="col-md-015 ltblk" type="button">Check Out</button></div>	
+			<div class="col-md-06 drkblk"><h1>Arizona State University Bookstore*</h1></div>
+			
+			
+
+			<div><asp:Button class="col-md-015 ltblk .button" runat="server" type="button" ID="HomeBtn" BorderColor="Yellow" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Text="Home"></asp:Button></div>
+			<div><asp:Button class="col-md-015 ltblk .button" type="button" runat="server" ID="SearchBtn" BorderColor="Yellow" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Text="Search"></asp:Button></div>			
+			<div><asp:Button class="col-md-015 ltblk .button" type="button" runat="server" ID="ShoppingCartBtn" BorderColor="Yellow" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Text="Shopping Cart"></asp:Button></div>	
+			<div><asp:Button class="col-md-015 ltblk .button" type="button" runat="server" ID="ConfirmationBtn" BorderColor="Yellow" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Text="Confirmation"></asp:Button></div>	
 		</div>
 	</header>
 
@@ -206,32 +218,14 @@
 			<table class="center" id=inputTable>
 				<tr>
 					<td>
-						<input id="authorLastNameID" type="text" 
-							   placeholder="Author Last Name" required>
+
+						<asp:TextBox ID="SearchTxtBox" runat="server" Width="617px"></asp:TextBox>
+						
 					</td>
-					<td>
-						<input id="authorFirstNameID" type="text" 
-							   placeholder="Author First Name" required>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input id="isbnID" type="text" 
-							   placeholder="ISBN Number" required>
-					</td>
-					<td>
-						<input id="bookTitleID" type="text" 
-							   placeholder="Book Title" required>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input id="courseNumberID" type="text" 				
-							   placeholder="Course Number" required>
-					</td>
-					<td align="right">
-						<input id="authorLastNameID" type="submit" 
-							    required>
+				
+				
+					<td align="right" class="auto-style4">
+						<asp:Button type="button" runat="server" ID="submitBTN" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Text="Submit" BackColor="Gray" CssClass="auto-style5" OnClick="submitBTN_Click" Width="129px"></asp:Button>
 					</td>		
 				</tr>
 			</table>
@@ -277,10 +271,10 @@
 
 	    	<div class="col-md-06 drkblk"><p>&nbsp;</p></div>
 
-	    	<div class="col-md-02 drkblk"><ul><nav><li><a href="#">ASU Home Page</a></li>
-	    								  <li><a href="#">About Us</a></li>
-	    								  <li><a href="#">Privacy</a></li>
-	    								  <li><a href="#">Support</a></li></nav></ul></div>
+	    	<div class="col-md-02 drkblk"><ul><nav><li><a href="https://www.asu.edu" target="_blank">ASU Home Page</a></li>
+	    								  <li><a href="https://www.asu.edu/?feature=newsevents" target="_blank">News and Events</a></li>
+	    								  <li><a href="https://www.asu.edu/?feature=academics" target="_blank">Academics</a></li>
+	    								  <li><a href="https://www.asu.edu/?feature=athletics" target="_blank">Athletics</a></li></nav></ul></div>
 
 	    	<div class="col-md-005 drkblk"><p>&nbsp;</p></div>
 	    </div>
@@ -291,5 +285,9 @@
 	    
 	    
 	</footer>
+
+<asp:Label ID="Label1" runat="server" Text="Label" BackColor="White"></asp:Label>
+
+</form>
 </body>
 </html>

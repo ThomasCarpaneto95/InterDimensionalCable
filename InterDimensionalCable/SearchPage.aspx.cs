@@ -14,9 +14,6 @@ namespace InterDimensionalCable
         {
             
         }
-        protected void SearchDataBase(object sender, EventArgs e)
-        {
-            session["SearchTerm"] = SearchBar.text;
-        }
-    }
+
+    } 
 }
