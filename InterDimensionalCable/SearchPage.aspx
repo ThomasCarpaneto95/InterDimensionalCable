@@ -9,7 +9,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
-        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+            <asp:Label ID="Label1" runat="server" Text="Search Results: "></asp:Label>
+        <asp:GridView ID="SearchResultsGridView" runat="server" DataSourceID="BookSQLCon">
+            <Columns>
+                <asp:ButtonField ButtonType="Button" Text="Add To Cart" />
+                <asp:BoundField />
+                <asp:BoundField />
+                <asp:BoundField />
+                <asp:BoundField />
+            </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="BookSQLCon" runat="server"></asp:SqlDataSource>
+            <asp:Button ID="Button1" runat="server" Text="Proceed to Cart" />
         </div>
         <div>
         </div>
