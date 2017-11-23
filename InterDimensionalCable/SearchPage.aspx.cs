@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Web;
@@ -18,13 +20,13 @@ namespace InterDimensionalCable
         protected void Page_Load(object sender, EventArgs e)
         {
             // Gets the search string from the home search text box
-            string searchString = (string) Session["SearchString"];
+            string searchString = (string)Session["SearchString"];
 
             // components for a connection string to an Access 2016 named 'SampleDB.accdb'
             string provider = "Microsoft.ACE.OLEDB.12.0";
 
             // the data source for Access database if it's placed on the local device 
-            string dataSource = "C:\\Users\\conno\\Documents\\TeamICProje\\InterDimensionalCable\\DataAccessLayer\\A2ZBooks.accdb";
+            string dataSource = "C:\\users\\thoma\\onedrive\\documents\\visual studio 2015\\Projects\\InterDimensionalCable\\InterDimensionalCable\\DataAccessLayer\\A2ZBooks.accdb";
 
             // the data source for Access database if it's placed in the 'App_Data' folder of the 
             //  current project when run within Citrix
@@ -35,38 +37,52 @@ namespace InterDimensionalCable
             OleDbConnection myConn = new OleDbConnection(dbConnectionString);
             myConn.Open();
 
-            string query = "SELECT * FROM book, course, bookcoursebridge WHERE bookID = bookcoursebridge.BookID" +
-                " AND bookcoursebridge.CourseID = course.ID";
-                // the SampleDB Access database has a table named 'practice'
-            /*string query = $"SELECT DISTINCT Author, Title, Price FROM book, course, bookcoursebridge WHERE bookID = bookcoursebridge.BookID" +
+            //string query = "SELECT * FROM book, course, bookcoursebridge WHERE bookID = bookcoursebridge.BookID" +
+            //    " AND bookcoursebridge.CourseID = course.ID";
+            // the SampleDB Access database has a table named 'practice'
+            string query = $"SELECT DISTINCT Author, Title, Price FROM book, course, bookcoursebridge WHERE book.ID = bookcoursebridge.BookID" +
                 " AND bookcoursebridge.CourseID = course.ID AND " +
-                 $"Author = '*{searchString}*' OR" +
-                 $" Title = '*{searchString}*' OR" +
-                 $" ISBN = '*{searchString}*' OR" +
-                 $" CODE = '*{searchString}*';";*/
-            OleDbCommand cmd = new OleDbCommand(query, myConn);
-            var reader = cmd.ExecuteReader();
+                 $" Author = '{searchString}' OR" +
+                 $" Title = '{searchString}' OR" +
+                 $" ISBN = '{searchString}' OR" +
+                 $" CODE = '{searchString}';";
+            //string query = $"SELECT * FROM book, course, bookcoursebridge WHERE bookID = bookcoursebridge.BookID AND bookcoursebridge.CourseID = course.ID";
+            //OleDbCommand cmd = new OleDbCommand(query, myConn);
+            //var reader = cmd.ExecuteReader();
 
             //lblMyData.Text = String.Empty;
+            //while (reader.Read())
+            //{
 
-            while (reader.Read())
+            //    var author = reader["Author"];
+            //    var title = reader["Title"];
+            //    var price = reader["Price"];
+
+
+            //    Label1.Text = $"{author} {title} {isbn} {code}";
+            //    Do something with the retrieved values
+            //    lblMyData.Text += "Semester selected is " + semesterName.ToString()
+            //    + " in the year " + yearOffered.ToString()
+            //    + ".<br>";
+            //}
+            string strConnString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            DataTable dt = new DataTable();
+            using (OleDbConnection con = new OleDbConnection(strConnString))
             {
-
-                var author = reader["Author"];
-                var title = reader["Title"];
-                var isbn = reader["ISBN"];
-                var code = reader["CODE"];
-
                 
-
-                //Label1.Text = $"{author} {title} {isbn} {code}";
-                // Do something with the retrieved values
-                //lblMyData.Text += "Semester selected is " + semesterName.ToString()
-                //+ " in the year " + yearOffered.ToString()
-                //+ ".<br>";
+                OleDbCommand cmd = new OleDbCommand(query);
+                using (OleDbDataAdapter sda = new OleDbDataAdapter())
+                {
+                    cmd.Connection = con;
+                    con.Open();
+                    sda.SelectCommand = cmd;
+                    sda.Fill(dt);
+                    SearchResultsGridView.DataSource = dt;
+                    SearchResultsGridView.DataBind();
+                }
             }
-
-            reader.Close();
+            //reader.Close();
+        
 
             //cmd.CommandText = "Insert into practice (semester, yearoffered) values (@semester, @year);";
             //cmd.Parameters.AddWithValue("@semester", "Summer");
@@ -75,10 +91,9 @@ namespace InterDimensionalCable
 
             myConn.Close();
         }
-    
        protected void AddToCart(object sender, EventArgs e)
-            {/*  
+       {/*  
             Session["BookName"];*/
-            }
+       }
     }
 }
