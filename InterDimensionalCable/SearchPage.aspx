@@ -100,13 +100,9 @@
 
         <div>
             <asp:Label ID="Label1" runat="server" Text="Search Results: "></asp:Label>
-        <asp:GridView ID="SearchResultsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="214px" Width="789px" BorderStyle="Solid" BorderWidth="2px" BorderColor="Yellow" ForeColor="Yellow" HorizontalAlign="Center" CssClass="GridStyle" OnRowCommand="SearchResultsGridView_RowCommand" OnSelectedIndexChanging="SearchResultsGridView_SelectedIndexChanging">
+        <asp:GridView ID="SearchResultsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="214px" Width="789px" BorderStyle="Solid" BorderWidth="2px" BorderColor="Yellow" ForeColor="Yellow" HorizontalAlign="Center" CssClass="GridStyle">
          <Columns>
-             <asp:TemplateField ShowHeader="False">
-                 <ItemTemplate>
-                     <asp:Button ID="AddButton" runat="server" CausesValidation="false" CommandName="AddToCart" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Add to Cart" OnClick="AddToCart" />
-                 </ItemTemplate>
-             </asp:TemplateField>
+             <asp:ButtonField ButtonType="Button" Text="Add To Cart" />
         <asp:TemplateField HeaderText="Author">
             <ItemTemplate>
                 <%# Eval("Author") %>
@@ -124,13 +120,10 @@
         </asp:TemplateField>
     </Columns>
         </asp:GridView>
-            <asp:Button ID="proceedToCartButton" runat="server" Text="Proceed to Cart" OnClick="proceedToCartButton_Click" />
+            <asp:Button ID="Button1" runat="server" Text="Proceed to Cart" />
         </div>
         <div>
-            <br />
-            <br />
         </div>
-        <asp:Label ID="LabeltEST" runat="server"></asp:Label>
     </form>
 </body>
 </html>
