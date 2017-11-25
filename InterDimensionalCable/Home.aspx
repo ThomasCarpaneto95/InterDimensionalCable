@@ -219,7 +219,7 @@
 				<tr>
 					<td>
 
-						<asp:TextBox ID="SearchTxtBox" runat="server" Width="617px"></asp:TextBox>
+						<asp:TextBox ID="SearchTxtBox" runat="server" Width="617px" placeholder="Author Name, Title, ISBN, Course Number"></asp:TextBox>
 						
 					</td>
 				
