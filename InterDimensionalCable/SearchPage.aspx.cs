@@ -95,5 +95,18 @@ namespace InterDimensionalCable
        {/*  
             Session["BookName"];*/
        }
-    }
+
+
+
+/*		protected void grvTermsAndConditions_rowDataBound(Object sender, GridViewRowEventArgs e)
+		{
+			if (e.Row.RowIndex == 0)
+			{
+				e.Row.CssClass = "red";
+				e.Row.Cells[0].ForeColor = "wht";
+				e.Row.Cells[1].CssClass = "wht";           
+
+			}
+		}                  */
+	}
 }
