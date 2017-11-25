@@ -60,7 +60,7 @@
 			background-color:   #000000;
 		}
 
-								/* ASU Header*/
+								/* ASU Header Text*/
 		h1{
 			color: red;
 		}
