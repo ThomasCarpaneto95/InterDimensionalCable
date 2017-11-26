@@ -12,7 +12,11 @@
             <asp:Label ID="Label1" runat="server" Text="Search Results: "></asp:Label>
         <asp:GridView ID="SearchResultsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="214px" Width="789px">
          <Columns>
-             <asp:ButtonField ButtonType="Button" Text="Add To Cart" />
+             <asp:TemplateField HeaderText="Add to Cart">
+                 <ItemTemplate>
+                     <asp:CheckBox ID="CheckBox" runat="server" />
+                 </ItemTemplate>
+             </asp:TemplateField>
         <asp:TemplateField HeaderText="Author">
             <ItemTemplate>
                 <%# Eval("Author") %>
@@ -30,10 +34,13 @@
         </asp:TemplateField>
     </Columns>
         </asp:GridView>
-            <asp:Button ID="Button1" runat="server" Text="Proceed to Cart" />
+            <asp:Button ID="proceedToCartButton" runat="server" Text="Proceed to Cart" OnClick="proceedToCartButton_Click" />
         </div>
         <div>
+            <br />
+            <br />
         </div>
+        <asp:Label ID="LabeltEST" runat="server"></asp:Label>
     </form>
 </body>
 </html>
