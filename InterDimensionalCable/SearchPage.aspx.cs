@@ -19,6 +19,7 @@ namespace InterDimensionalCable
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var list = SearchResultsGridView.SelectedRow.Controls;
             // Gets the search string from the home search text box
             string searchString = (string)Session["SearchString"];
 
@@ -91,9 +92,85 @@ namespace InterDimensionalCable
 
             myConn.Close();
         }
-       protected void AddToCart(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        protected void AddToCart(object sender, EventArgs e)
        {/*  
             Session["BookName"];*/
        }
+
+        protected void proceedToCartButton_Click(object sender, EventArgs e)
+        {
+            int counter = 0;
+            //foreach(GridViewRow row in SearchResultsGridView.Rows)
+            //{
+            //    if (((CheckBox)row.FindControl($"SearchResultsGridView_CheckBox_{counter}")).Checked)
+            //    {
+
+            //        counter++;
+            //    }
+            //}
+
+                for (int i = 1; i < SearchResultsGridView.Rows.Count; i++)
+                {
+                GridViewRow row = SearchResultsGridView.Rows[i];
+                CheckBox check = (CheckBox)row.FindControl("CheckBox");
+                    if (check != null && check.Checked)
+                    {
+
+                        counter++;
+                   
+                    }
+                }
+            LabeltEST.Text = counter.ToString();
+         }
     }
 }
