@@ -100,11 +100,11 @@
 
         <div>
             <asp:Label ID="Label1" runat="server" Text="Search Results: "></asp:Label>
-        <asp:GridView ID="SearchResultsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="214px" Width="789px" BorderStyle="Solid" BorderWidth="2px" BorderColor="Yellow" ForeColor="Yellow" HorizontalAlign="Center" CssClass="GridStyle">
+        <asp:GridView ID="SearchResultsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="214px" Width="789px" BorderStyle="Solid" BorderWidth="2px" BorderColor="Yellow" ForeColor="Yellow" HorizontalAlign="Center" CssClass="GridStyle" OnRowCommand="SearchResultsGridView_RowCommand" OnSelectedIndexChanging="SearchResultsGridView_SelectedIndexChanging">
          <Columns>
-             <asp:TemplateField HeaderText="Add to Cart">
+             <asp:TemplateField ShowHeader="False">
                  <ItemTemplate>
-                     <asp:CheckBox ID="CheckBox" runat="server" />
+                     <asp:Button ID="AddButton" runat="server" CausesValidation="false" CommandName="AddToCart" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Add to Cart" OnClick="AddToCart" />
                  </ItemTemplate>
              </asp:TemplateField>
         <asp:TemplateField HeaderText="Author">

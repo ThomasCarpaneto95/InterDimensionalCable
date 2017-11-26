@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,7 +20,7 @@ namespace InterDimensionalCable
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var list = SearchResultsGridView.SelectedRow.Controls;
+            //var list = SearchResultsGridView.SelectedRow.Controls;
             // Gets the search string from the home search text box
             string searchString = (string)Session["SearchString"];
 
@@ -80,6 +81,7 @@ namespace InterDimensionalCable
                     sda.Fill(dt);
                     SearchResultsGridView.DataSource = dt;
                     SearchResultsGridView.DataBind();
+                    Session["dataSource"] = dt;
                 }
             }
             //reader.Close();
@@ -94,83 +96,151 @@ namespace InterDimensionalCable
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         protected void AddToCart(object sender, EventArgs e)
-       {/*  
-            Session["BookName"];*/
-       }
+       {
+            SearchResultsGridView.DataBind();
+            int counter = 0;
+
+            DataTable dt = new DataTable();
+            for (int i = 1; i < SearchResultsGridView.Columns.Count; i++)
+            {
+                if (i == 1)
+                {
+                    dt.Columns.Add("Author");
+                }
+                if (i == 2)
+                {
+                    dt.Columns.Add("Title");
+                }
+                if (i == 3)
+                {
+                    dt.Columns.Add("Price");
+                }
+            }
+            foreach (GridViewRow row in SearchResultsGridView.Rows)
+            {
+                DataRow dr = dt.NewRow();
+                for (int j = 1; j < SearchResultsGridView.Columns.Count; j++)
+                {
+                    if (j == 1)
+                    {
+                        dr["Author"] = row.Cells[j].Text;
+                    }
+                    if (j == 2)
+                    {
+                        dr["Title"] = row.Cells[j].Text;
+                    }
+                    if (j == 3)
+                    {
+                        dr["Price"] = row.Cells[j].Text;
+                    }
+
+                }
+
+                dt.Rows.Add(dr);
+            }
+
+            SearchResultsGridView.DataSource = dt;
+            SearchResultsGridView.DataBind();
+
+        }
 
         protected void proceedToCartButton_Click(object sender, EventArgs e)
         {
+            SearchResultsGridView.DataBind();
             int counter = 0;
-            //foreach(GridViewRow row in SearchResultsGridView.Rows)
-            //{
-            //    if (((CheckBox)row.FindControl($"SearchResultsGridView_CheckBox_{counter}")).Checked)
-            //    {
 
-            //        counter++;
+            DataTable dt = new DataTable();
+            for (int i = 1; i < SearchResultsGridView.Columns.Count; i++)
+            {
+                if(i == 1)
+                {
+                    dt.Columns.Add("Author");
+                }
+                if (i == 2)
+                {
+                    dt.Columns.Add("Title");
+                }
+                if (i == 3)
+                {
+                    dt.Columns.Add("Price");
+                }
+              }
+            foreach (GridViewRow row in SearchResultsGridView.Rows)
+            {
+                DataRow dr = dt.NewRow();
+                for (int j = 1; j < SearchResultsGridView.Columns.Count; j++)
+                {
+                    if(j == 1)
+                    {
+                        dr["Author"] = row.Cells[j].Text;
+                    }
+                    if (j == 2)
+                    {
+                        dr["Title"] = row.Cells[j].Text;
+                    }
+                    if (j == 3)
+                    {
+                        dr["Price"] = row.Cells[j].Text;
+                    }
+
+                }
+
+                dt.Rows.Add(dr);
+            }
+
+            SearchResultsGridView.DataSource = dt;
+            SearchResultsGridView.DataBind();
+
+
+            //Get the GridView Row.
+            //GridViewRow row = SearchResultsGridView.Rows[0];
+
+            ////Get the HobbyId from the DataKey property.
+            //int bookID = 1;
+
+            ////Get the checked value of the CheckBoxField column.
+            //bool isSelected = (row.Cells[0].Controls[1] as CheckBox).Checked;
+            //string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            //using (SqlConnection con = new SqlConnection(constr))
+            //{
+            //    using (SqlCommand cmd = new SqlCommand())
+            //    {
+            //        cmd.CommandText = "UPDATE hobbies SET [IsSelected] = @IsSelected WHERE HobbyId=@HobbyId";
+            //        cmd.Connection = con;
+            //        con.Open();
+            //        cmd.Parameters.AddWithValue("@HobbyId", bookID);
+            //        cmd.Parameters.AddWithValue("@IsSelected", isSelected);
+            //        cmd.ExecuteNonQuery();
+            //        con.Close();
             //    }
             //}
+            //SearchResultsGridView.EditIndex = -1;
+            //SearchResultsGridView.DataBind();
 
-                for (int i = 1; i < SearchResultsGridView.Rows.Count; i++)
-                {
-                GridViewRow row = SearchResultsGridView.Rows[i];
-                CheckBox check = (CheckBox)row.FindControl("CheckBox");
-                    if (check != null && check.Checked)
-                    {
 
-                        counter++;
-                   
-                    }
-                }
             LabeltEST.Text = counter.ToString();
          }
+
+        protected void SearchResultsGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "AddToCart")
+            {
+                // Retrieve the row index stored in the 
+                // CommandArgument property.
+                int index = Convert.ToInt32(e.CommandArgument);
+
+                // Retrieve the row that contains the button 
+                // from the Rows collection.
+                GridViewRow row = SearchResultsGridView.Rows[index];
+
+                // Add code here to add the item to the shopping cart.
+            }
+        }
+
+        protected void SearchResultsGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
     }
 }
