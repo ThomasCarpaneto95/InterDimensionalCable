@@ -60,7 +60,7 @@
 			background-color:   #000000;
 		}
 
-								/* ASU Header*/
+								/* ASU Header Text*/
 		h1{
 			color: red;
 		}
@@ -213,18 +213,18 @@
 	<div class="row">
 		<div class="col-md-01 drkblk"><h2>&nbsp;</h2></div>
 		<div>
-		<form id=inputForm>
+		<form id="inputForm">
 			
-			<table class="center" id=inputTable>
+			<table class="center" id="inputTable">
 				<tr>
 					<td>
 
-						<asp:TextBox ID="SearchTxtBox" runat="server" Width="617px"></asp:TextBox>
+						<asp:TextBox ID="SearchTxtBox" runat="server" Width="617px" placeholder="Author Name, Title, ISBN, Course Number"></asp:TextBox>
 						
 					</td>
 				
 				
-					<td align="right" class="auto-style4">
+					<td class="auto-style4">
 						<asp:Button type="button" runat="server" ID="submitBTN" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Text="Submit" BackColor="Gray" CssClass="auto-style5" OnClick="submitBTN_Click" Width="129px"></asp:Button>
 					</td>		
 				</tr>
@@ -271,10 +271,10 @@
 
 	    	<div class="col-md-06 drkblk"><p>&nbsp;</p></div>
 
-	    	<div class="col-md-02 drkblk"><ul><nav><li><a href="https://www.asu.edu" target="_blank">ASU Home Page</a></li>
+	    	<div class="col-md-02 drkblk"><ul><li><a href="https://www.asu.edu" target="_blank">ASU Home Page</a></li>
 	    								  <li><a href="https://www.asu.edu/?feature=newsevents" target="_blank">News and Events</a></li>
 	    								  <li><a href="https://www.asu.edu/?feature=academics" target="_blank">Academics</a></li>
-	    								  <li><a href="https://www.asu.edu/?feature=athletics" target="_blank">Athletics</a></li></nav></ul></div>
+	    								  <li><a href="https://www.asu.edu/?feature=athletics" target="_blank">Athletics</a></li></ul></div>
 
 	    	<div class="col-md-005 drkblk"><p>&nbsp;</p></div>
 	    </div>

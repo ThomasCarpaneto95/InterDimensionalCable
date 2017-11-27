@@ -11,6 +11,13 @@ namespace InterDimensionalCable
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var dataset = Session["dataSource"];
+            CartList.DataSource = dataset;
+            CartList.DataBind();
+        }
+
+        protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 
