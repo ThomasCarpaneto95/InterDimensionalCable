@@ -58,15 +58,6 @@ namespace InterDimensionalCable {
         protected global::System.Web.UI.WebControls.Button ConfirmationBtn;
         
         /// <summary>
-        /// SearchPageTxtBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchPageTxtBox;
-        
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -92,14 +83,5 @@ namespace InterDimensionalCable {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button proceedToCartButton;
-        
-        /// <summary>
-        /// LabeltEST control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabeltEST;
     }
 }

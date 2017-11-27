@@ -93,8 +93,6 @@
 			<div><asp:Button class="col-md-015 ltblk .button" type="button" runat="server" ID="ConfirmationBtn" BorderColor="Yellow" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Text="Confirmation"></asp:Button></div>	
 		</div>
 
-			<asp:TextBox ID="SearchPageTxtBox" runat="server" Width="617px"></asp:TextBox>
-
 		</header>
 
 
@@ -102,7 +100,7 @@
             <asp:Label ID="Label1" runat="server" Text="Search Results: "></asp:Label>
         <asp:GridView ID="SearchResultsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="214px" Width="789px" BorderStyle="Solid" BorderWidth="2px" BorderColor="Yellow" ForeColor="Yellow" HorizontalAlign="Center" CssClass="GridStyle">
          <Columns>
-             <asp:ButtonField ButtonType="Button" Text="Add To Cart" />
+             <asp:ButtonField ButtonType="Button" runat="server" Text="Add To Cart" />
         <asp:TemplateField HeaderText="Author">
             <ItemTemplate>
                 <%# Eval("Author") %>
@@ -120,7 +118,7 @@
         </asp:TemplateField>
     </Columns>
         </asp:GridView>
-            <asp:Button ID="Button1" runat="server" Text="Proceed to Cart" />
+            <asp:Button ID="proceedToCartButton" runat="server" Text="Proceed to Cart" OnClick="proceedToCartButton_Click" />
         </div>
         <div>
         </div>
