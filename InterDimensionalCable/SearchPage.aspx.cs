@@ -145,7 +145,6 @@ namespace InterDimensionalCable
         protected void proceedToCartButton_Click(object sender, EventArgs e)
         {
             SearchResultsGridView.DataBind();
-            int counter = 0;
 
             DataTable dt = new DataTable();
             for (int i = 1; i < SearchResultsGridView.Columns.Count; i++)
@@ -184,10 +183,8 @@ namespace InterDimensionalCable
                 }
 
                 dt.Rows.Add(dr);
+                Session["EmptySetForCart"] = dt;
             }
-
-            SearchResultsGridView.DataSource = dt;
-            SearchResultsGridView.DataBind();
             Response.Redirect("ShoppingCart.aspx");
 
             //Get the GridView Row.

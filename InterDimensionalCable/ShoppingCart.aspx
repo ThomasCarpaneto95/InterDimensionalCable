@@ -119,7 +119,22 @@
         <br />
         <br />
 		<br />
-
+         <table align="center" class="auto-style1">
+            <tr>
+                <td>
+                    <asp:Button ID="returnToSearch" runat="server" OnClick="returnToSearch_Click" Text="Return to Search Page" />
+                </td>
+                <td>
+                    <asp:Button ID="proceedToCheckout" runat="server" Text="Proceed To Checkout" OnClick="proceedToCheckout_Click" />
+                </td>
+                <td>
+                    <asp:Label ID="totalBooksInCart" runat="server" ForeColor="Yellow" Text="Books In Cart : "></asp:Label>
+                </td>
+                <td>
+                    <asp:Label ID="subTotal" runat="server" ForeColor="Yellow" Text="SubTotal: "></asp:Label>
+                </td>
+            </tr>
+            </table>
 
     
     </div>
