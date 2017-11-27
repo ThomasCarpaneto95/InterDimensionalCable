@@ -100,7 +100,7 @@
             <asp:Label ID="Label1" runat="server" Text="Search Results: "></asp:Label>
         <asp:GridView ID="SearchResultsGridView" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="214px" Width="789px" BorderStyle="Solid" BorderWidth="2px" BorderColor="Yellow" ForeColor="Yellow" HorizontalAlign="Center" CssClass="GridStyle">
          <Columns>
-             <asp:ButtonField ButtonType="Button" runat="server" Text="Add To Cart" />
+             <asp:ButtonField ButtonType="Button" runat="server" Text="Add To Cart" CommandName="AddToCart"  />
         <asp:TemplateField HeaderText="Author">
             <ItemTemplate>
                 <%# Eval("Author") %>

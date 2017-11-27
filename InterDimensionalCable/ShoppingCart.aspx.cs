@@ -9,16 +9,59 @@ namespace InterDimensionalCable
 {
     public partial class ShoppingCart : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            var dataset = Session["dataSource"];
-            CartList.DataSource = dataset;
-            CartList.DataBind();
+
+            if (!IsPostBack)
+            {
+                if (Request.UrlReferrer.AbsolutePath == "/ConfirmationPage")
+                {
+
+                    Response.Write("<script language=javascript>alert('ORDER CANCELED: emptying shopping cart.');</script>");
+                    var datareset = Session["EmptySetForCart"];
+                    CartList.DataBind();
+                }
+                else
+                {
+                    var dataset = Session["dataSource"];
+                    CartList.DataSource = dataset;
+                    CartList.DataBind();
+                    totalBooksInCart.Text = totalBooksInCart.Text + " " + CartList.Rows.Count.ToString();
+                    subTotal.Text = subTotal.Text + " " + "500";
+
+                }
+      
+            }
+            else
+            {
+                if(Request.UrlReferrer.AbsolutePath == "/ConfirmationPage")
+                {
+                    var datareset = Session["EmptySetForCart"];
+                    CartList.DataBind();
+                }
+                else
+                {
+                    var dataset = Session["dataSource"];
+                    CartList.DataSource = dataset;
+                    CartList.DataBind();
+                    totalBooksInCart.Text = totalBooksInCart.Text + " " + CartList.Rows.Count.ToString();
+                    subTotal.Text = subTotal.Text + " " + "500";
+
+                }
+            }
+            
         }
 
-        protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        protected void returnToSearch_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SearchPage.aspx");
+        }
+
+        protected void proceedToCheckout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ConfirmationPage.aspx");
         }
     }
 }
