@@ -12,7 +12,36 @@ namespace InterDimensionalCable
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                try
+                {
+                    if (Request.UrlReferrer.AbsolutePath == "/ConfirmationPage")
+                    {
+                        Response.Write("<script language=javascript>alert('Order Processed, Happy Studies!');</script>");
+                    }
+                }
+                catch
+                {
 
+                }
+            
+            }
+            else
+            {
+                try
+                {
+                    if (Request.UrlReferrer.AbsolutePath == "/ConfirmationPage")
+                    {
+                        Response.Write("<script language=javascript>alert('Order Processed, Happy Studies!');</script>");
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+   
         }
 
 		protected void submitBTN_Click(object sender, EventArgs e)
