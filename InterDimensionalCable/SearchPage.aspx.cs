@@ -236,5 +236,25 @@ namespace InterDimensionalCable
         {
 
         }
-    }
+
+		protected void HomeBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Home.aspx");
+		}
+
+		protected void SearchBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("SearchPage.aspx");
+		}
+
+		protected void ShoppingCartBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("ShoppingCart.aspx");
+		}
+
+		protected void ConfirmationBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("ConfirmationPage.aspx");
+		}
+	}
 }
