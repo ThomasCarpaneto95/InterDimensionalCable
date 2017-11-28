@@ -25,13 +25,13 @@ namespace InterDimensionalCable
             string provider = "Microsoft.ACE.OLEDB.12.0";
 
             // the data source for Access database if it's placed on the local device 
-            string dataSource = "C:\\users\\thoma\\onedrive\\documents\\visual studio 2015\\Projects\\InterDimensionalCable\\InterDimensionalCable\\DataAccessLayer\\A2ZBooks.accdb";
+            string dataSource = "C:\\Users\\Joshua P\\source\\repos\\InterDimensionalCable\\InterDimensionalCable\\DataAccessLayer\\A2ZBooks.accdb";
 
-            // the data source for Access database if it's placed in the 'App_Data' folder of the 
-            //  current project when run within Citrix
-            //string dataSource = "\\\\itfs1\\wpcarey\\StudentHomeFolders\\kroumina\\Documents\\Visual Studio 2017\\Projects\\PracticeDataConnectivity_Sln\\PracticeDataConnectivity\\App_Data\\SampleDB.accdb";
+			// the data source for Access database if it's placed in the 'App_Data' folder of the 
+			//  current project when run within Citrix
+			//string dataSource = "\\\\itfs1\\wpcarey\\StudentHomeFolders\\kroumina\\Documents\\Visual Studio 2017\\Projects\\PracticeDataConnectivity_Sln\\PracticeDataConnectivity\\App_Data\\SampleDB.accdb";
 
-            string dbConnectionString = string.Format("Provider={0};Data Source={1};", provider, dataSource);
+			string dbConnectionString = string.Format("Provider={0};Data Source={1};", provider, dataSource);
 
             OleDbConnection myConn = new OleDbConnection(dbConnectionString);
             myConn.Open();
@@ -247,5 +247,25 @@ namespace InterDimensionalCable
         {
 
         }
-    }
+
+		protected void HomeBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Home.aspx");
+		}
+
+		protected void SearchBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("SearchPage.aspx");
+		}
+
+		protected void ShoppingCartBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("ShoppingCart.aspx");
+		}
+
+		protected void ConfirmationBtn_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("ConfirmationPage.aspx");
+		}
+	}
 }
