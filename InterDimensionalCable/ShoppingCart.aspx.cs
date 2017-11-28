@@ -12,7 +12,8 @@ namespace InterDimensionalCable
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            double bookcost;
+            string searchString = (string)Session["SearchString"];
             if (!IsPostBack)
             {
                 if (Request.UrlReferrer.AbsolutePath == "/ConfirmationPage")
@@ -24,11 +25,27 @@ namespace InterDimensionalCable
                 }
                 else
                 {
-                    var dataset = Session["dataSource"];
-                    CartList.DataSource = dataset;
-                    CartList.DataBind();
-                    totalBooksInCart.Text = totalBooksInCart.Text + " " + CartList.Rows.Count.ToString();
-                    subTotal.Text = subTotal.Text + " " + "500";
+                    if (searchString == "Linda Prince")
+                    {
+                        var dataset = Session["dataSource"];
+                        CartList.DataSource = dataset;
+                        CartList.DataBind();
+                        totalBooksInCart.Text = totalBooksInCart.Text + " " + CartList.Rows.Count.ToString();
+                        bookcost = 22;
+                        Session["bookcost"] = bookcost;
+                        subTotal.Text = subTotal.Text + " " + $"{bookcost}";
+                    }
+                    else
+                    {
+                        var dataset = Session["dataSource"];
+                        CartList.DataSource = dataset;
+                        CartList.DataBind();
+                        totalBooksInCart.Text = totalBooksInCart.Text + " " + CartList.Rows.Count.ToString();
+                        bookcost = 78.73;
+                        Session["bookcost"] = bookcost;
+                        subTotal.Text = subTotal.Text + " " + $"{bookcost}";
+                    }
+
 
                 }
       

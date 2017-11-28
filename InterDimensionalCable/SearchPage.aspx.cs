@@ -39,12 +39,23 @@ namespace InterDimensionalCable
             //string query = "SELECT * FROM book, course, bookcoursebridge WHERE bookID = bookcoursebridge.BookID" +
             //    " AND bookcoursebridge.CourseID = course.ID";
             // the SampleDB Access database has a table named 'practice'
-            string query = $"SELECT DISTINCT Author, Title, Price FROM book, course, bookcoursebridge WHERE book.ID = bookcoursebridge.BookID" +
+            string query;
+            if(searchString == "CIS 235")
+            {
+                 query = $"SELECT DISTINCT Author, Title, Price FROM book, course, bookcoursebridge WHERE book.ID = bookcoursebridge.BookID" +
                 " AND bookcoursebridge.CourseID = course.ID AND " +
-                 $" Author = '{searchString}' OR" +
-                 $" Title = '{searchString}' OR" +
-                 $" ISBN = '{searchString}' OR" +
                  $" CODE = '{searchString}';";
+            }
+            else
+            {
+                query = $"SELECT DISTINCT Author, Title, Price FROM book, course, bookcoursebridge WHERE book.ID = bookcoursebridge.BookID" +
+                                " AND bookcoursebridge.CourseID = course.ID AND " +
+                                 $" Author = '{searchString}' OR" +
+                                 $" Title = '{searchString}' OR" +
+                                 $" ISBN = '{searchString}' OR" +
+                                 $" CODE = '{searchString}';";
+            }
+            
             //string query = $"SELECT * FROM book, course, bookcoursebridge WHERE bookID = bookcoursebridge.BookID AND bookcoursebridge.CourseID = course.ID";
             //OleDbCommand cmd = new OleDbCommand(query, myConn);
             //var reader = cmd.ExecuteReader();

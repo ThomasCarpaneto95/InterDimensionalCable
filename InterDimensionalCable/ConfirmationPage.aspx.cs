@@ -11,24 +11,38 @@ namespace InterDimensionalCable
     {
         const double APPLICABLE_TAX = .0675;
         const double SHIPPING_COST = .01;
+        double totalTax;
+        double totalShipping;
+        double grandTotal;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            double bookcost = (double)Session["bookcost"];
             if (!IsPostBack)
             {
                 var dataset = Session["dataSource"];
                 ConfirmationGridView.DataSource = dataset;
                 ConfirmationGridView.DataBind();
+                subTotalLabel.Text = bookcost.ToString();
                 taxLabel.Text = APPLICABLE_TAX.ToString();
                 shippingLabel.Text = SHIPPING_COST.ToString();
-
+                totalTax = (bookcost * APPLICABLE_TAX);
+                totalShipping = (bookcost * SHIPPING_COST);
+                grandTotal = bookcost + totalShipping + totalTax;
+                totalLabel.Text = grandTotal.ToString();
             }
             else
             {
                 var dataset = Session["dataSource"];
                 ConfirmationGridView.DataSource = dataset;
                 ConfirmationGridView.DataBind();
+                subTotalLabel.Text = bookcost.ToString();
                 taxLabel.Text = APPLICABLE_TAX.ToString();
                 shippingLabel.Text = SHIPPING_COST.ToString();
+                totalTax = (bookcost * APPLICABLE_TAX);
+                totalShipping = (bookcost * SHIPPING_COST);
+                grandTotal = bookcost + totalShipping + totalTax;
+                totalLabel.Text = grandTotal.ToString();
             }
 
         }
