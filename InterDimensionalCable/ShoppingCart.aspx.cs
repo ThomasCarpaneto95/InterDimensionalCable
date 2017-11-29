@@ -12,6 +12,11 @@ namespace InterDimensionalCable
         
         protected void Page_Load(object sender, EventArgs e)
         {
+			// Unable to properly pass data from one gridview to the next. We got close after several attemps/hours (attempts code provided in search.cs)
+			// The Gridview registered that the information was getting passed yet it wasnt displaying in the shopping cart gridview
+			// For that reason, we decided to do another search query to populate the shoppingcart gridview.
+
+
             double bookcost;
             string searchString = (string)Session["SearchString"];
             if (!IsPostBack)
@@ -70,6 +75,8 @@ namespace InterDimensionalCable
             
         }
 
+
+		// Naviagation Buttons using the Response.Redirect method
 
         protected void returnToSearch_Click(object sender, EventArgs e)
         {

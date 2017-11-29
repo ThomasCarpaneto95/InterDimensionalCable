@@ -11,7 +11,8 @@
 			box-sizing: 		border-box;
 		}
 
-		
+		/*classes used form css  - they area referenced in the divs*/
+
 		.col-md-00  {display: 		   none; }
 		.col-md-005 {width: 		  4.165%; }
 		.col-md-01  {width: 		  8.33%; }
@@ -178,7 +179,7 @@
 </head>
 <body>
 	<form id="HomeForm" runat="server">
-			<header>
+			<header> 
 		<div class="row">
 			<div class="col-md-06 drkblk"><h1>Arizona State University Bookstore*</h1></div>
 			
@@ -286,7 +287,7 @@
 	    
 	</footer>
 
-<asp:Label ID="Label1" runat="server" Text="Label" BackColor="White"></asp:Label>
+
 
 </form>
 </body>

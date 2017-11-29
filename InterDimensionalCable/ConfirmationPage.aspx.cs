@@ -17,6 +17,9 @@ namespace InterDimensionalCable
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+			// Math used to calculate total
+
             double bookcost = (double)Session["bookcost"];
             if (!IsPostBack)
             {
@@ -46,6 +49,8 @@ namespace InterDimensionalCable
             }
 
         }
+
+		// Button_onClick event for navigation
 
         protected void returnToShopCartButton_Click(object sender, EventArgs e)
         {

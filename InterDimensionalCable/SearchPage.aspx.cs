@@ -104,7 +104,9 @@ namespace InterDimensionalCable
         }
 
 
-        protected void AddToCart(object sender, EventArgs e)
+		// Attempt 5 (passing info from gridview into Shopping Cart using a DataTable)
+
+		protected void AddToCart(object sender, EventArgs e)
         {
             SearchResultsGridView.DataBind();
             int counter = 0;
@@ -153,6 +155,9 @@ namespace InterDimensionalCable
 
         }
 
+		// Proceed to cart on_click event
+		// created another datatable and session (bound)
+
         protected void proceedToCartButton_Click(object sender, EventArgs e)
         {
             SearchResultsGridView.DataBind();
@@ -198,36 +203,80 @@ namespace InterDimensionalCable
             }
             Response.Redirect("ShoppingCart.aspx");
 
-            //Get the GridView Row.
-            //GridViewRow row = SearchResultsGridView.Rows[0];
 
-            ////Get the HobbyId from the DataKey property.
-            //int bookID = 1;
+								// Attempt 2 (passing info from gridview into Shopping Cart using SqlConnection)
+								// Attempt 3 (created new DataTable and bound it to a new Session)
 
-            ////Get the checked value of the CheckBoxField column.
-            //bool isSelected = (row.Cells[0].Controls[1] as CheckBox).Checked;
-            //string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            //using (SqlConnection con = new SqlConnection(constr))
-            //{
-            //    using (SqlCommand cmd = new SqlCommand())
-            //    {
-            //        cmd.CommandText = "UPDATE hobbies SET [IsSelected] = @IsSelected WHERE HobbyId=@HobbyId";
-            //        cmd.Connection = con;
-            //        con.Open();
-            //        cmd.Parameters.AddWithValue("@HobbyId", bookID);
-            //        cmd.Parameters.AddWithValue("@IsSelected", isSelected);
-            //        cmd.ExecuteNonQuery();
-            //        con.Close();
-            //    }
-            //}
-            //SearchResultsGridView.EditIndex = -1;
-            //SearchResultsGridView.DataBind();
+			//Get the GridView Row.
+			//GridViewRow row = SearchResultsGridView.Rows[0];
+
+			////Get the HobbyId from the DataKey property.
+			//int bookID = 1;
+
+			////Get the checked value of the CheckBoxField column.
+			//bool isSelected = (row.Cells[0].Controls[1] as CheckBox).Checked;
+			//string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+			//using (SqlConnection con = new SqlConnection(constr))
+			//{
+			//    using (SqlCommand cmd = new SqlCommand())
+			//    {
+			//        cmd.CommandText = "UPDATE hobbies SET [IsSelected] = @IsSelected WHERE HobbyId=@HobbyId";
+			//        cmd.Connection = con;
+			//        con.Open();
+			//        cmd.Parameters.AddWithValue("@HobbyId", bookID);
+			//        cmd.Parameters.AddWithValue("@IsSelected", isSelected);
+			//        cmd.ExecuteNonQuery();
+			//        con.Close();
+			//    }
+			//}
+			//SearchResultsGridView.EditIndex = -1;
+			//SearchResultsGridView.DataBind();
 
 
-            //LabeltEST.Text = counter.ToString();
-        }
+			//LabeltEST.Text = counter.ToString();
+		}
 
-        protected void SearchResultsGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+
+													// Attempt 4 for shopping cart functionality
+
+
+		//protected void AddToCart(object sender, EventArgs e)
+		//{  
+            //Session["BookName"];
+
+			//DataTable dt = new DataTable();
+			//dt.Columns.Add(new DataColumn("Author", typeof(string)));
+			//dt.Columns.Add(new DataColumn("Title", typeof(string)));
+			//dt.Columns.Add(new DataColumn("Price", typeof(string)));
+
+			//foreach (GridViewRow row in SearchResultsGridView.Rows)
+			//{
+			//	DataRow dr = dt.NewRow();
+			//	//assume that the first cell of you grid has the name
+			//	dr["Author"] = row.Cells[0].Text;
+
+			//	dr["Title"] = row.Cells[1].Text;
+			//	//assume that the second cell of you grid has the age
+
+			//	dr["Price"] = row.Cells[2].Text;
+			//	//add the new row to the DataTable
+			//	dt.Rows.Add(dr);
+			//}
+
+
+			//foreach (GridViewRow row in SearchResultsGridView.Rows)
+			//{
+			//	CheckBox chk = row.FindControl("chkBox") as CheckBox;
+			//	if (chk.Checked)
+			//	{
+			//	dt.Rows.Add(row);
+			//	}
+			//}
+		//	Session["CartList"] = dt;
+		//	Response.Redirect("ShoppingCart.aspx");
+		//}
+
+		protected void SearchResultsGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "AddToCart")
             {
@@ -247,6 +296,8 @@ namespace InterDimensionalCable
         {
 
         }
+
+		// Naviagation Buttons using the Response.Redirect method
 
 		protected void HomeBtn_Click(object sender, EventArgs e)
 		{

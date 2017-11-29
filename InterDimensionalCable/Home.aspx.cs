@@ -12,6 +12,8 @@ namespace InterDimensionalCable
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+			// Alert for confirmation using a try catch and if statements
+
             if (!IsPostBack)
             {
                 try
@@ -43,6 +45,8 @@ namespace InterDimensionalCable
             }
    
         }
+
+		// Naviagation Buttons using the Response.Redirect method
 
 		protected void submitBTN_Click(object sender, EventArgs e)
 		{
